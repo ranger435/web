@@ -1,0 +1,431 @@
+1) <!DOCTYPE html>
+<html>
+<head>
+<title>Count no of elements in the form</title>
+<script type="text/javascript">
+function countFormElements(){
+alert("The number of elements are:"+document.myForm.length);
+}
+</script>
+</head>
+<body>
+<form name="myForm">
+Name:<input type="text"/></br></br>
+Password:<input type="password"/></br></br>
+Address:<textarea id="addressbox" cols="50" rows="10"></textarea></br></br>
+Sex:<input type="radio" name="Gender"/>Male
+<input type="radio" name="Gender"/>Female</br></br>
+Newsletter:<input type="checkbox" checked="checked"></br></br>
+<input type="button" value="Send Message" onclick="countFormElements()"/>
+</form>
+</body>
+</html>
+
+
+2)
+
+<!DOCTYPE html>
+<html>
+<head>
+<title>Validate the text boxes</title>
+<script type="text/javascript">
+function validate(){
+var myArray=new Array();
+for(var i=0;i<document.myForm.length;++i){
+if(document.myForm.elements[i].value.length==0){
+myArray.push(document.myForm.elements[i].name);}}
+if(myArray.length!=0){
+alert("The following text boxes are empty:\n"+myArray);}}
+</script>
+</head>
+<body>
+<form name="myForm" onsubmit="validate()">
+Name:<input type="text" name="Name"/></br></br>
+Class:<input type="text" name="Class"/></br></br>
+Age:<input type="text" name="Age"/></br></br>
+<input type="submit" value="Send Message"/>
+</form>
+</body>
+</html>
+
+3)
+<!DOCTYPE html>
+<html>
+<title>Evaluate Expression</title>
+<head>
+<script type="text/javascript">
+function evaluate_exp()
+    {
+        var x = document.myform.expr.value;
+        var result = eval(x);
+        document.myform.resulttxt.value = result;
+    }</script>
+</head>
+
+<body>
+<form name="myform">
+Enter Any Valid Expression:<input type="text" name="expr" /> <br/><br/>
+<input type="button" value="Evaluate" onclick="evaluate_exp()" /> <br/><br/>
+Result of Expression:<input type="text" name="resulttxt" /> <br/><br/>
+</form>
+</body>
+</html>
+
+4)
+<!DOCTYPE html>
+<html>><head>
+<title>Basic Animation</title>
+<style>
+#layer1{position:absolute;top:50px;left:50px;}
+#layer2{position:absolute;top:50px;left:150px;}
+#layer3{position:absolute;top:50px;left:250px;}
+</style>
+<script type="text/javascript">
+function moveImage(layer){
+var top=window.prompt("Enter the top Value:");
+var left=window.prompt("Enter the left Value:");
+document.getElementById(layer).style.top=top+'px';
+document.getElementById(layer).style.top=left+'px';
+}</script>
+</head>
+<body>
+<div id="layer1"><img src="ball.png" onclick="moveImage('layer1')" alt="My Image"/></div>
+<div id="layer2"><img src="ball.png" onclick="moveImage('layer2')" alt="My Image"/></div>
+<div id="layer3"><img src="ball.png" onclick="moveImage('layer3')" alt="My Image"/></div>
+</body>
+</html>
+5)
+<!DOCTYPE html>
+<html>
+<head>
+<script>
+function findcost(){
+var major=document.getElementById("major");
+var starters=document.getElementById("starters");
+var soft=document.getElementById("soft");
+var slectedItems="Item\t\t\tPrice\n.........................................\n";
+var totalcost=0;
+
+for(var i=0;i<major.options.length;++i){
+var option=major.options[i];
+if(option.selected==true){
+var price=parseInt(option.value);
+totalcost=totalcost+price;
+slectedItems=slectedItems+option.text+"\t\t"+price+"\n";
+}
+}
+
+for(var i=0;i<starters.options.length;++i){
+var option=starters.options[i];
+if(option.selected==true){
+var price=parseInt(option.value);
+totalcost=totalcost+price;
+slectedItems=slectedItems+option.text+"\t\t"+price+"\n";
+}
+}
+
+for(var i=0;i<soft.options.length;++i){
+var option=soft.options[i];
+if(option.selected==true){
+var price=parseInt(option.value);
+totalcost=totalcost+price;
+slectedItems=slectedItems+option.text+"\t\t\t"+price+"\n";
+}
+}
+slectedItems=slectedItems+"\n\nTotal Cost\t\t"+totalcost;
+document.getElementById("ordereditems").value=slectedItems;
+}
+</script>
+</head>
+
+<body>
+<form name="menuForm">
+<table border="10">
+
+<tr>
+<th colspan="2" align="center">
+<h2>Restaurant Menu Details</h2>
+</th>
+</tr>
+
+<tr>
+<td>Major Dishes</td>
+<td>
+<select id="major" size="3" multiple="multiple">
+<option value="100">Vegetable Pulav</option>
+<option value="150">Hyderabadi Biryani</option>
+<option value="50">Roti with Curry</option>
+</select>
+</td>
+</tr>
+
+<tr>
+<td>Starters</td>
+<td>
+<select id="starters" size="3" multiple="multiple">
+<option value="80">Gobi Manchurian</option>
+<option value="40">Veg clear soup</option>
+<option value="30">Masala Papad</option>
+</select>
+</td>
+</tr>
+
+<tr>
+<td>Soft drinks</td>
+<td><select id="soft" size="3" multiple="multiple">
+<option value="20">Pepsi</option>
+<option value="20">Coke</option>
+<option value="30">Lime Soda</option>
+</select>
+</td>
+</tr>
+
+<tr>
+<td colspan="2" align="center">
+<textarea id="ordereditems" rows="10" cols="40"></textarea>
+</td>
+</tr>
+
+<tr>
+<td><input type="button" value="Find total Cost" onclick="findcost()"/></td>
+<td><input type="reset" value="clear"/></td>
+</tr>
+
+</table>
+</form>
+</body>
+</html>
+
+6)
+<!DOCTYPE html>
+<html>
+<head>
+<title>Date Display</title>
+<script type="text/javascript">
+var days=["First","second","third","fourth","fifth","sixth","seventh","eighth","ninth","tenth","eleventh","twelvth","thirteenth","fourteenth","fifteenth","sixteenth","seventeenth","eighteenth","nineteenth","twentyeth","twentyfirst","twentysecondth","twentythird","twentyfourth","twentyfifth","twentysixth","twentyseventh","twentyeighth","twentyninth","thirtyeth","thirtyfirst"];
+var months=["January","February","March","April","May","June","July","August","September","October","November","December"];
+var year="Two thousand twentytwo";
+var dateObj=new Date();
+var currMonth=dateObj.getMonth();
+var currDate=dateObj.getDate();
+var currYear=dateObj.getFullYear();
+if(currYear==2022)
+alert("Today's Date is:"+days[currDate-1]+" "+months[currMonth]+" "+year);
+else
+alert("Today's Date is:"+days[currDate-1]+" "+months[currMonth]+" "+currYear);
+</script>
+</head>
+</html>
+
+7)
+
+<!DOCTYPE  html>
+<html>
+<head>
+<title>Student Data Example</title>
+<script type="text/javascript">
+function showResults(){
+var name=document.getElementById("name").value;
+var cls=document.getElementById("class").value;
+var marks1=parseInt(document.getElementById("sub1").value);
+var marks2=parseInt(document.getElementById("sub2").value);
+var marks3=parseInt(document.getElementById("sub3").value);
+var total=marks1+marks2+marks3;
+var avg=total/3;
+var grade,result;
+if(avg>=60){
+grade="A";
+result="First Class";}
+
+else if(avg<60 && avg>=50){
+grade="C";
+result="Second Class";}
+
+else if(avg<50 && avg>=40){
+grade="C";
+result="Second Class";}
+
+else{
+grade="C";
+result="Fail";}
+document.write("<h2>Results</h2>");
+document.write("<b>Name :"+name+"</b></br>");
+document.write("<b>Class :"+cls+"</b></br>");
+document.write("<b>Total Marks :"+total+"</b></br>");
+document.write("<b>Average :"+avg+"</b></br>");
+document.write("<b>Grade :"+grade+"</b></br>");
+document.write("<b>Result :"+result+"</b></br>");
+}
+</script>
+</head>
+<body>
+<form name="myForm">
+<h2>Fill up the student details form</h2>
+<p>Enter the Name:<input type="text"id="name"/></p>
+<p>Enter the Class:<input type="text"id="class"/></p>
+<p>Enter Subject 1 Marks:<input type="text"id="sub1"/></p>
+<p>Enter Subject 2 Marks:<input type="text"id="sub2"/></p>
+<p>Enter the Subject 3 Marks:<input type="text"id="sub3"/></p></br>
+<button onclick="showResults()">Submit</button>
+</form>
+</body>
+</html>
+
+8)
+<!DOCTYPE html>
+<html>
+<head>
+<title>Employee salary details</title>
+<script>
+function showSalary(){
+var empname=document.getElementById("empname").value;
+var empno=document.getElementById("empno").value;
+var basic=parseInt(document.getElementById("basic").value);
+var hra=basic*0.4;
+var da=basic*0.6;
+var gross=basic+hra+da;
+var pf=gross*0.13;
+var tax=gross*0.2;
+var deductions=pf+tax;
+var netsalary=gross-deductions;
+document.writeln("<table border='5'>");
+document.writeln("<tr><th>Employee salary breakup details</th></tr>");
+document.writeln("<tr><td>Employee Name:"+empname+"</td></tr>");
+document.writeln("<tr><td>Employee No.:"+empno+"</td></tr>");
+document.writeln("<tr><td>Basic Salary:"+basic+"</td></tr>");
+document.writeln("<tr><td>HRA(40% of basic):"+hra+"</td></tr>");
+document.writeln("<tr><td>DA(60% of basic):"+da+"</td></tr>");
+document.writeln("<tr><td>Gross Salary:"+gross+"</td></tr>"); 
+document.writeln("<tr><td>PF(13% Basic):"+pf+"</td></tr>");
+document.writeln("<tr><td>Tax(20% of basic):"+tax+"</td></tr>");
+document.writeln("<tr><td>Deductions(PF+Tax):"+deductions+"</td></tr>");
+document.writeln("<tr><td><b>Net Salary(Gross deductions):</b>"+netsalary+"</td></tr>");
+document.writeln("</table>");
+}
+</script>
+</head>
+
+<body>
+<table border="5">
+<tr><th>Employee Details</th></tr>
+<tr>
+<td>Employee name:</td>
+<td><input type="text" id="empname"></td>
+</tr>
+<tr>
+<td>Employee number:</td>
+<td><input type="text" id="empno"></td>
+</tr>
+<tr>
+<td>Basic Pay:</td>
+<td><input type="text" id="basic"></td>
+</tr>
+</table>
+</br>
+<input onclick="showSalary()" type="submit"/>
+
+</body>
+</html>
+
+9)
+
+<!DOCTYPE html>
+<html>
+<head>
+<script>
+function findcost(){
+var major=document.getElementById("major");
+var starters=document.getElementById("starters");
+var soft=document.getElementById("soft");
+var slectedItems="Item\t\t\tPrice\n.........................................\n";
+var totalcost=0;
+
+for(var i=0;i<major.options.length;++i){
+var option=major.options[i];
+if(option.selected==true){
+var price=parseInt(option.value);
+totalcost=totalcost+price;
+slectedItems=slectedItems+option.text+"\t\t"+price+"\n";
+}
+}
+
+for(var i=0;i<starters.options.length;++i){
+var option=starters.options[i];
+if(option.selected==true){
+var price=parseInt(option.value);
+totalcost=totalcost+price;
+slectedItems=slectedItems+option.text+"\t\t"+price+"\n";
+}
+}
+
+for(var i=0;i<soft.options.length;++i){
+var option=soft.options[i];
+if(option.selected==true){
+var price=parseInt(option.value);
+totalcost=totalcost+price;
+slectedItems=slectedItems+option.text+"\t\t\t"+price+"\n";
+}
+}
+slectedItems=slectedItems+"\n\nTotal Cost\t\t"+totalcost;
+document.getElementById("ordereditems").value=slectedItems;
+}
+</script>
+</head>
+
+<body>
+<form name="menuForm">
+<table border="10">
+
+<tr>
+<th colspan="2" align="center">
+<h2>Restaurant Menu Details</h2>
+</th>
+</tr>
+
+<tr>
+<td>Major Dishes</td>
+<td>
+<select id="major" size="3" multiple="multiple">
+<option value="100">Vegetable Pulav</option>
+<option value="150">Hyderabadi Biryani</option>
+<option value="50">Roti with Curry</option>
+</select>
+</td>
+</tr>
+
+<tr>
+<td>Starters</td>
+<td>
+<select id="starters" size="3" multiple="multiple">
+<option value="80">Gobi Manchurian</option>
+<option value="40">Veg clear soup</option>
+<option value="30">Masala Papad</option>
+</select>
+</td>
+</tr>
+
+<tr>
+<td>Soft drinks</td>
+<td><select id="soft" size="3" multiple="multiple">
+<option value="20">Pepsi</option>
+<option value="20">Coke</option>
+<option value="30">Lime Soda</option>
+</select>
+</td>
+</tr>
+
+<tr>
+<td colspan="2" align="center">
+<textarea id="ordereditems" rows="10" cols="40"></textarea>
+</td>
+</tr>
+
+<tr>
+<td><input type="button" value="Find total Cost" onclick="findcost()"/></td>
+<td><input type="reset" value="clear"/></td>
+</tr>
+
+</table>
+</form>
+</body>
+</html>
