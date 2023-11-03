@@ -1,0 +1,218 @@
+PART B Programs
+
+1.	Write a program to demonstrate ordered list and its tags <ol> and <li>
+<html>
+<head>
+<title>Ordered list</title>
+</head>
+<body bgcolor="red">
+<h4>list of fruits</h4>
+<ol type="A" start="A">
+<li>Strawberry</li>
+<li>Fig</li>
+<li>Mango</li>
+<li>Pineapple</li>
+</ol>
+<h4>List of Vegetables</h4>
+<ol type="i" start="i">
+<li>tomato</li>
+<li>cauliflower</li>
+<li>carrot</li>
+<li>beans</li>
+</ol>
+<h4>list of cereals</h4>
+<ol type="1" start="1">
+<li>rice</li>
+<li>jowar</li>
+<li>groundnuts</li>
+</ol>
+</body>
+</html>
+
+2.	Write a program to demonstrate the unordered list in HTML
+
+<html>
+<head>
+<title>UnOrdered list</title>
+</head>
+<body bgcolor="pink">
+<h4>list of fruits</h4>
+<ul type="disc">
+<li>Strawberry</li>
+<li>Fig</li>
+<li>Mango</li>
+<li>Pineapple</li>
+</ul>
+<h4>List of Vegetables</h4>
+<ul type="square">
+<li>tomato</li>
+<li>cauliflower</li>
+<li>carrot</li>
+<li>beans</li>
+</ul>
+<h4>list of cereals</h4>
+<ul type="circle">
+<li>rice</li>
+<li>jowar</li>
+<li>groundnuts</li>
+</ul>
+</body>
+</html>
+
+3.	Write a program to demonstrate the functionality of the alert method. 
+
+<!DOCTYPE html>
+<html>
+<head>
+<script>
+function confirmShow(){
+let r=confirm("Press a button");
+if(r==false)
+window.alert("We pressed cancel!");
+else
+window.alert("We pressed OK!");
+}
+</script>
+</head>
+<body>
+<button onclick="confirmShow()">Show confirm box</button>
+</body>
+</html>
+
+
+4.	Write a program to prompt user to enter the name and throw a message if the user hasn’t entered any input. 
+
+<!DOCTYPE html>
+<html>
+<head>
+<script>
+function showPrompt(){
+let name=window.prompt("Please enter your name:");
+if(name==null || name=="")
+{
+document.write("<p>Enter something atleast</p>");
+document.write("<p>Laziness won't help you!</p>");
+}
+else{
+document.write("Hello,"+name+" how are you?");
+}
+}
+</script>
+</head>
+<body>
+<button onclick="showPrompt()">Show promt box</button>
+</body>
+</html>
+
+5.	Write  a program to demonstrate the events of mouse such as mouseup, mousedown and mouseover
+<!DOCTYPE html>
+<html>
+<head>
+<script>
+function myFunction(element,clr){
+element.style.color=clr;
+}
+</script>
+</head>
+<body>
+<h1 onmouseover="style.color='red'" onmouseout="style.color='black'">Get the mouse</h1>
+<h1 onmousedown="myFunction(this,'red')" onmouseup="myFunction(this,'green')">Click the text to change the color.</br>A function with parameters is triggered when the mouse button is pressed down again and again</br>with other parameters when the mouse button is released</h1>
+</body>
+</html>
+
+6.	Write a Javascript program to change the entered text from lowercase to uppercase
+
+<html>
+<head>
+<title>To convert the text to Uppercase</title>
+<script type="text/javascript">
+function change_case(){
+document.form1.type.value=document.form1.type.value.toUpperCase();
+}
+</script>
+</head>
+<body onload="form1.type.focus();">
+<center>
+<h1>To convert the character to Uppercase</h1>
+</center>
+<form name="form1" method="post">
+Enter User ID:<input type="text" name="type" value="">
+<input type="button" value="Change to Upper" onclick="change_case();">
+</form>
+</body>
+</html>
+
+7.	Write a program that takes in a target number as the user input and displays the fibonacci series till the target number.
+
+<!DOCTYPE html>
+<html>
+<head>
+<script>
+let target=prompt("Enter the target value:");
+let first=0,second=1;
+let nxtTerm=first+second;
+document.write("Fibonacci series till", "target" "</br>");
+document.write(first+"</br>");
+document.write(second+"</br>");
+while(nxtTerm<=target){
+document.write(nxtTerm+"</br>");
+first=second;
+second=nxtTerm;
+nxtTerm=first+second;
+}
+</script>
+</head>
+</html>
+
+8.	Write a program that takes number from the user as the input and displays the reverse of the number. 
+
+<html>
+<head>
+<script>
+function palin(){
+var a,no,b,temp=0;
+no=Number(document.getElementById("no_input").value);
+b=no;
+while(no>0)
+{
+a=no%10;
+no=parseInt(no/10);
+temp=temp*10+a;
+}
+alert(temp);
+}
+</script>
+</head>
+<body>
+Enter any Number:<input id="no_input">
+<button onclick="palin()">Check</button></br></br>
+</body>
+</html>
+
+9.	Write a program to validate username and password fields using keyboard events onfocus and onblur.
+
+
+
+10.	Write a program to implement mouse events (onmouseover, onmouseout etc)
+
+<!DOCTYPE html>
+<html>
+<head>
+<title>Font change dynamically</title>
+<script>
+function makeItSmall(){
+var parafont=document.getElementById("para").style;
+parafont.font="normal 8pt Arial"
+}
+function makeItBig(){
+var parafont=document.getElementById("para").style;
+parafont.font="bold 16pt Arial"
+}
+</script>
+</head>
+<body>
+<p id="para" onmouseover="makeItBig()" onmouseout="makeItSmall()">This is a sample text</p>
+</body>
+</html>
+
+
